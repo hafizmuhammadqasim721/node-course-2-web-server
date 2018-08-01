@@ -7,6 +7,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const port  = process.env.PORT || 3000;
 
 /**
  * making new express app, to do this we make variable 'app' and set it equal 
@@ -43,9 +44,9 @@ app.set('view engine', 'hbs');
  
  *     - '__dirname' store the path to the project directory
  
- *     - so now if you try to access 'localhost:3000/help.htm', you will see this 
+*     - so now if you try to access 'localhost:3000/help.htm', you will see this 
  *       page up in ur browser,    
- */
+ */ 
 
 /**
  * - belwo we use some middleware, and we teach express, how to read from static 
@@ -151,6 +152,6 @@ app.get('/bad', (req, res) => {
  * - Bind the application to port on our machine,  
  * - 3000 port is vary common to developing locally
  */
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 })
